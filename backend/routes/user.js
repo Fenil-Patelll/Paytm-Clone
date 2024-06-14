@@ -83,7 +83,7 @@ userRouter.put('/update', authmiddleware, async function(req,res){
     res.json("Can not Update User,as It is not registered")
  })
 
-userRouter.get('/bulk',authmiddleware, async function(req,res){
+userRouter.post('/bulk',authmiddleware, async function(req,res){
     const filter = req.query.filter || "";
     console.log(req.query)
     const regex = new RegExp(filter, 'i');
@@ -100,6 +100,18 @@ userRouter.get('/bulk',authmiddleware, async function(req,res){
     }
     res.json("No user with specified string")
 
+ })
+
+ userRouter.post('/balance',authmiddleware, async function(req,res){
+    const user = await Account.findOne({userId : req.userName})
+    console.log(user)
+    if(user){
+        console.log("hello")
+        res.json(user.balance)
+        return
+    }
+    res.status(500).json("No User found")
+    
  })
 
 module.exports =  userRouter;

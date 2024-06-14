@@ -6,6 +6,7 @@ const { authmiddleware } = require("../middleware");
 const mongoose = require("mongoose");
 
 transactionRouter.post("/send", authmiddleware, async function (req, res) {
+
     const session = await mongoose.startSession();
     session.startTransaction();
 
@@ -24,7 +25,7 @@ transactionRouter.post("/send", authmiddleware, async function (req, res) {
     if (!success) {
         await session.abortTransaction();
         session.endSession();
-        res.status(401).json("Invalid Input/JWT token");
+        res.status(401).json("Invalid Input");
         return;
     }
 

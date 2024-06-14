@@ -19,6 +19,7 @@ const authmiddleware = function(req, res, next){
             res.status(403).json("Not authorized")
             return
         }
+        req.userName = decoded.userName
         next();
     }
   }
