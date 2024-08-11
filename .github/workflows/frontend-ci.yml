@@ -42,7 +42,8 @@ jobs:
          username: ${{ secrets.FRONTEND_SSH_USERNAME }}
          key: ${{ secrets.FRONTEND_SSH_KEY }}
          script: |
+           sudo docker stop frontend || true
+           sudo docker rm frontend || true
+           sudo docker rmi fenilcodes/paytm:frontend || true
            sudo docker pull fenilcodes/paytm:frontend
-           sudo docker stop paytm:frontend || true
-           sudo docker rm paytm:frontend || true
            sudo docker run -d --name frontend -p 5173:5173 fenilcodes/paytm:frontend
