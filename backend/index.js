@@ -12,4 +12,3 @@ app.use("/api/v1",router)
 app.listen(3000,function(err){
     console.log("App is listening on Port 3000")
 })
-
