@@ -41,7 +41,7 @@ jobs:
             username: ${{ secrets.FRONTEND_SSH_USERNAME }}
             key: ${{ secrets.FRONTEND_SSH_KEY }}
             script: |
-                sudo docker pull fenilscodes/paytm:backend
+                sudo docker pull fenilcodes/paytm:backend
                 sudo docker stop paytm:backend || true
                 sudo docker rm paytm:backend || true
                 sudo docker run -d --name backend -p 5173:5173 fenilscodes/paytm:backend            
