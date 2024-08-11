@@ -6,6 +6,7 @@ const zod = require('zod')
 const {authmiddleware} = require("../middleware");
 const JWT_SECRET = require("../config")
 
+
 userRouter.post("/signup", async function(req,res){
 
     const userSchema = zod.object({
