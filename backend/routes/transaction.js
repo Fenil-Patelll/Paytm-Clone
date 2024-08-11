@@ -12,7 +12,6 @@ transactionRouter.post("/send", authmiddleware, async function (req, res) {
 
     const transactionDetails = req.body;
 
-   
     const transactionSchema = zod.object({
         userName: zod.string(),
         recieverId: zod.string(),
