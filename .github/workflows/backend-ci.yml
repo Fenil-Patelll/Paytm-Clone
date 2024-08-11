@@ -31,6 +31,7 @@ jobs:
                 tags: fenilcodes/paytm:backend
     
     deploy-backend:
+        needs: build-backend
         runs-on: ubuntu-latest
         
         steps:
@@ -44,4 +45,4 @@ jobs:
                 sudo docker pull fenilcodes/paytm:backend
                 sudo docker stop paytm:backend || true
                 sudo docker rm paytm:backend || true
-                sudo docker run -d --name backend -p 5173:5173 fenilscodes/paytm:backend            
+                sudo docker run -d --name backend -p 5173:5173 fenilcodes/paytm:backend

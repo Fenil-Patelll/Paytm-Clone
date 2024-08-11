@@ -31,6 +31,7 @@ jobs:
         tags: fenilcodes/paytm:frontend
 
   deploy-frontend:
+     needs: build-frontend
      runs-on: ubuntu-latest
      
      steps:
@@ -44,4 +45,4 @@ jobs:
            sudo docker pull fenilcodes/paytm:frontend
            sudo docker stop paytm:frontend || true
            sudo docker rm paytm:frontend || true
-           sudo docker run -d --name frontend -p 5173:5173 fenilscodes/paytm:frontend
+           sudo docker run -d --name frontend -p 5173:5173 fenilcodes/paytm:frontend
