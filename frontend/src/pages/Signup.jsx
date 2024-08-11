@@ -24,7 +24,7 @@ export const Signup = () => {
                     <Inputbox onChange = {e => {setPassowrd(e.target.value)}} label={'Password'} inputType={'password'} placeHolder={'*********'}></Inputbox>
                     <Button onClick = {async () => {
                         console.log("In button press")
-                        const response = await axios.post('http://backend:3000/api/v1/user/signup', {
+                        const response = await axios.post('http://ec2-18-233-168-76.compute-1.amazonaws.com:3000/api/v1/user/signup', {
                             userName,
                             firstName,
                             lastName,

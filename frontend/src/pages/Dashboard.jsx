@@ -8,7 +8,7 @@ export const Dashboard = function Dashboard(){
     const [balance, setBalance] = useState('')
 
     useEffect( () => {
-        axios.post('http://backend:3000/api/v1/user/balance',{
+        axios.post('http://ec2-18-233-168-76.compute-1.amazonaws.com:3000/api/v1/user/balance',{
           
           userName : localStorage.getItem('userName')
           
