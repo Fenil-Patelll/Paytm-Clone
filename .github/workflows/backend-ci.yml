@@ -12,9 +12,6 @@ jobs:
         runs-on: ubuntu-latest 
             
         steps:
-            -  name: change dir backend
-               run: cd backend
-                
             -  name: Set up QEMU
                uses: docker/setup-qemu-action@v3
             
@@ -30,6 +27,7 @@ jobs:
             -  name: Build and push
                uses: docker/build-push-action@v6
                with:
+                context: ./backend
                 push: true
                 tags: fenilcodes/paytm:backend
     
