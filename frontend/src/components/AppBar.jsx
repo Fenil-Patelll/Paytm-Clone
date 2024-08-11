@@ -2,7 +2,7 @@ import {Button} from "./Button"
 
 export function AppBar(){
     return (<>
-        <nav className="flex justify-between p-2 border-2 bg-slate-300">
+        <nav className="flex justify-between p-2 border-2 bg-yellow-300">
             <div>
                 <img className="h-8" src="https://asset.brandfetch.io/idRNBjXRVq/id3Xiy3Jkd.png" alt="" />
             </div>
