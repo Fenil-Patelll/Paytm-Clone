@@ -12,6 +12,9 @@ jobs:
         runs-on: ubuntu-latest 
             
         steps:
+            -  name: change dir backend
+               run: cd backend
+                
             -  name: Set up QEMU
                uses: docker/setup-qemu-action@v3
             
