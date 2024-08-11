@@ -54,4 +54,4 @@ jobs:
                 sudo docker rm backend || true
                 sudo docker rmi fenilcodes/paytm:backend || true
                 sudo docker pull fenilcodes/paytm:backend
-                sudo docker run -d --name backend -p 3000:3000 fenilcodes/paytm:backend
+                sudo docker run -d --name backend -p 3000:3000 -e DATABASE_URL=${{ secrets.DATABASE_URL }} fenilcodes/paytm:backend
