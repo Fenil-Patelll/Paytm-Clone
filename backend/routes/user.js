@@ -61,7 +61,6 @@ userRouter.post("/signup", async function(req,res){
 
 })
 
-
 userRouter.post('/signin', async function(req,res){
     const user = await User.find({userName : req.body.userName, password: req.body.password})
     if(user.length!=0){
