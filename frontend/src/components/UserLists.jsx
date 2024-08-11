@@ -8,7 +8,7 @@ export function UserLists(){
     const [filter,setFilter] = useState('')
     const [users, setUsers] = useState([])
     useEffect(()=>{
-        axios.post("http://localhost:3000/api/v1/user/bulk?filter=" + filter,{userName: localStorage.getItem('userName')},{headers:{'Authorization': 'Bearer '+localStorage.getItem('token')}}).then(res=> {
+        axios.post("http://backend:3000/api/v1/user/bulk?filter=" + filter,{userName: localStorage.getItem('userName')},{headers:{'Authorization': 'Bearer '+localStorage.getItem('token')}}).then(res=> {
         setUsers(res.data)
           
         }).catch(e=> {

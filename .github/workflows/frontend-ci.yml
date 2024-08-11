@@ -29,3 +29,19 @@ jobs:
        with:
         push: true
         tags: fenilcodes/paytm:frontend
+
+  deploy-frontend:
+     runs-on: ubuntu-latest
+     
+     steps:
+     - name: Deploy to EC2
+       uses: appleboy/ssh-action@master
+       with:
+         host: ${{ secrets.FRONTEND_SSH_HOST }}
+         username: ${{ secrets.FRONTEND_SSH_USERNAME }}
+         key: ${{ secrets.FRONTEND_SSH_KEY }}
+         script: |
+           sudo docker pull fenilscodes/paytm:frontend
+           sudo docker stop paytm:frontend || true
+           sudo docker rm paytm:frontend || true
+           sudo docker run -d --name frontend -p 5173:5173 fenilscodes/paytm:frontend

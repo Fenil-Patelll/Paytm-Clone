@@ -24,7 +24,7 @@ export const SendMoney = function SendMoney(){
                     </div>
                     <Inputbox onChange={e=> setAmount(e.target.value)}label={'Amount (In Rs)'} inputType={'text'} placeHolder={'Enter amount'}></Inputbox>
                     <Button onClick={async () => {
-                            const response =  await axios.post("http://localhost:3000/api/v1/transaction/send",{
+                            const response =  await axios.post("http://backend:3000/api/v1/transaction/send",{
                                 userName : localStorage.getItem('userName'),
                                 recieverId : id,
                                 amount : Number(amount)
